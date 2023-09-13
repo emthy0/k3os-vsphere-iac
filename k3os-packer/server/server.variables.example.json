@@ -1,0 +1,16 @@
+{
+  "vcenter_server": "vcenter.example.com",
+  "vcenter_username": "administrator@vsphere.local",
+  "vcenter_password": "YourPasswordHere1!",
+  "vcenter_datastore": "datastore0",
+  "vcenter_folder": "Packer_Images",
+  "vcenter_host": "esxi_hostname/IP",
+  "vcenter_network": "192.168.50.x-24",
+  "vcenter_iso_path": "[raid0] ISOs/k3os-amd64.iso",
+  "template_name": "k3os-server-template",
+  "ssh_username": "rancher",
+  "rancher_hostname": "k3os-server-01",
+  "rancher_password": "YourPasswordHere2!",
+  "rancher_network_address": "10.10.10.8/255.255.0.0/10.10.10.1",
+  "rancher_token": "K10:YourTokenHere3!"
+}

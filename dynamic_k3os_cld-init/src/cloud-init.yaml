@@ -1,0 +1,35 @@
+ssh_authorized_keys:
+  - github:emthy0
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmnggpAPzHErNLwz0FqdEANGGgq62B0GBzJChYHrQ2kI9TyLguCfNxJW3rLK6n8I9R80xwTKC0yo753t/8SE755A062zrrAT6KyvDJX0+KwBzR1jDvtiEH6hhfOTWcuRI+h2uaZPDvvy0t1kfSnqSVuUWqLrSaXlB0JEpD4dS4gdFpI6fAZqfZ6k7s5O9SXMyoH5YqyBcYdivNAb042CnzJnycBu5LzELcqs6TTjE0qQqBCBRtL4beKeiCO4Dn+haCSAuqqQ4D7RsakaySjTPy4G1DLuJenTw2gGELIzKIhg5c17ohgsXvH8V+PeoKfOmIDaM8H8SWEJqB9wKS+2/x6ZJhrR/dLl8gwcHeQTmIIVNCDWxcrEeKR9JB29fjNuJ0hNFLizHFQNu9nMvMd5FX6ofiTNQa+AN5x4HBeyWNrCzdwZ2RY7xKXfTEchkNkjA21U+xc+7ZL57rDy5zg5xKWs3Ng0g40o4oWtZocCrYZdh5DlUzfkTuzPmtDTDo8JU= ironp@DESKTOP-PQ7925C
+init_cmd:
+boot_cmd:
+  - "ln -vs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime"
+  - "echo 'Asia/Bangkok' > /etc/timezone"
+run_cmd:
+write_files:
+  # - path: /var/lib/connman/default.config
+  #   content: |-
+  #     [service_eth0]
+  #     Type=ethernet
+  #     IPv4=192.168.50.164/255.255.255.0/192.168.50.1
+  #     IPv6=off
+  #     Nameservers=192.168.50.1
+hostname: k3os-master
+k3os:
+  data_sources:
+  modules:
+  sysctls:
+  ntp_servers:
+    - 0.th.pool.ntp.org
+    - 1.th.pool.ntp.org
+  dns_nameservers:
+    - 8.8.8.8
+    - 1.1.1.1
+  password: rancher
+  token: K102bbde8192740f9e3331e82c7beb9c9acb6458e12a840549a51a2bd4aa820c6da::server:a89971349b12d06abc93fe555be8fb21
+  labels:
+  k3s_args:
+    # - server
+    # - "--cluster-init"
+  environment:
+  taints:

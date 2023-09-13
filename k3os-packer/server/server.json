@@ -1,0 +1,60 @@
+{
+  "builders": [
+    {
+      "CPUs": 4,
+      "RAM": 8192,
+      "RAM_reserve_all": true,
+      "boot_command": [
+        "rancher",
+        "<enter>",
+        "sudo k3os install",
+        "<enter>",
+        "1",
+        "<enter>",
+        "y",
+        "<enter>",
+        "https://dynamic_k3os_cld-init.g00se.workers.dev/?hostname={{user `rancher_hostname`}}&mode=server&isClusterInit=true&ipv4={{user `rancher_network_address`}}&ipv6=true&token={{user `rancher_token`}}&pwd=thailand123&ssh_authorized_keys=github:emthy0,ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCmnggpAPzHErNLwz0FqdEANGGgq62B0GBzJChYHrQ2kI9TyLguCfNxJW3rLK6n8I9R80xwTKC0yo753t/8SE755A062zrrAT6KyvDJX0+KwBzR1jDvtiEH6hhfOTWcuRI+h2uaZPDvvy0t1kfSnqSVuUWqLrSaXlB0JEpD4dS4gdFpI6fAZqfZ6k7s5O9SXMyoH5YqyBcYdivNAb042CnzJnycBu5LzELcqs6TTjE0qQqBCBRtL4beKeiCO4Dn+haCSAuqqQ4D7RsakaySjTPy4G1DLuJenTw2gGELIzKIhg5c17ohgsXvH8V+PeoKfOmIDaM8H8SWEJqB9wKS+2/x6ZJhrR/dLl8gwcHeQTmIIVNCDWxcrEeKR9JB29fjNuJ0hNFLizHFQNu9nMvMd5FX6ofiTNQa+AN5x4HBeyWNrCzdwZ2RY7xKXfTEchkNkjA21U+xc+7ZL57rDy5zg5xKWs3Ng0g40o4oWtZocCrYZdh5DlUzfkTuzPmtDTDo8JU= ironp@DESKTOP-PQ7925C&ntp_servers=0.th.pool.ntp.org,1.th.pool.ntp.org&dns_nameservers=8.8.8.8,1.1.1.1",
+        "<enter>",
+        "y",
+        "<enter>"
+      ],
+      "boot_order": "disk,cdrom",
+      "boot_wait": "40s",
+      "convert_to_template": "true",
+      "datastore": "{{user `vcenter_datastore`}}",
+      "disk_controller_type": "pvscsi",
+      "folder": "{{user `vcenter_folder`}}",
+      "guest_os_type": "other4xLinux64Guest",
+      "host": "{{user `vcenter_host`}}",
+      "insecure_connection": "true",
+      "iso_paths": ["{{user `vcenter_iso_path`}}"],
+      "network_adapters": [
+        {
+          "network": "{{user `vcenter_network`}}",
+          "network_card": "vmxnet3"
+        }
+      ],
+      "password": "{{user `vcenter_password`}}",
+      "shutdown_command": "sudo poweroff",
+      "ssh_password": "{{user `rancher_password`}}",
+      "ssh_username": "{{user `ssh_username`}}",
+      "storage": [
+        {
+          "disk_size": 10240,
+          "disk_thin_provisioned": true
+        }
+      ],
+      "type": "vsphere-iso",
+      "username": "{{user `vcenter_username`}}",
+      "vcenter_server": "{{user `vcenter_server`}}",
+      "vm_name": "{{user `template_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
+      "inline": ["echo hello world"],
+      "type": "shell"
+    }
+  ]
+}

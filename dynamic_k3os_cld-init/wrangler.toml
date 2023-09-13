@@ -1,0 +1,4 @@
+name = "dynamic_k3os_cld-init"
+main = "src/index.ts"
+compatibility_date = "2023-09-13"
+node_compat = true

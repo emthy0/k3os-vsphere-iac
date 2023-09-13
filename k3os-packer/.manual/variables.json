@@ -1,0 +1,19 @@
+{
+  "vm_name": "k3os-template",
+  "vcenter_server": "",
+  "vcenter_username": "",
+  "vcenter_password": "",
+  "vcenter_datacenter": "",
+  "vcenter_datastore": "",
+  "vcenter_host": "",
+  "vcenter_folder": "",
+  "vcenter_network": "",
+  "guest_os_type": "debian5_64Guest",
+  "http_directory": "http",
+  "iso_urls": "https://github.com/rancher/k3os/releases/download/v0.21.5-k3s2r1/k3os-amd64.iso",
+  "iso_checksum_type": "sha256",
+  "iso_checksum": "a465b0c52ce415173f6ef38fda5d090580fbaae0970556a62f21c7db8eeb72b1",
+  "iso_paths": "[BaracudaRaid0] ISO/k3os-amd64.iso",
+  "ssh_username": "ubuntu",
+  "ssh_password": "ubuntu"
+}
