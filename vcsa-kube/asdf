@@ -1,0 +1,28 @@
+variable "master_count" {
+  type = number
+}
+
+variable "master_name" {
+  type = string
+}
+
+variable "master_cpu" {
+  type = number
+}
+
+variable "master_cores-per-socket" {
+  type = number
+}
+
+variable "master_ram" {
+  type = number
+}
+
+variable "master_vm-guest-id" {
+  type = string
+  default = "other4xLinux64Guest"
+}
+
+variable "master_disksize" {
+  type = number
+}
