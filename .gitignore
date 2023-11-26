@@ -2,3 +2,4 @@ node_modules/
 *.variables.json
 !*.variables.example.json
 ./k3os/*
+id_rsa

@@ -1,0 +1,37 @@
+#cloud-config
+write_files:
+- path: /etc/sysctl.d/60-disable-ipv6.conf
+  owner: root
+  content: |
+    net.ipv6.conf.all.disable_ipv6=1
+    net.ipv6.conf.default.disable_ipv6=1
+runcmd:
+- netplan --debug apply
+- sysctl -w net.ipv6.conf.all.disable_ipv6=1
+- sysctl -w net.ipv6.conf.default.disable_ipv6=1
+- apt-get -y update
+- add-apt-repository universe
+- apt-get install -y nginx
+- apt-get -y clean
+- apt-get -y autoremove --purge
+timezone: UTC
+system_info:
+  default_user:
+    name: ubuntu
+    lock_passwd: false
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+disable_root: false
+ssh_pwauth: yes
+chpasswd:
+  list: |
+# mkpasswd -m sha-512 VMware1!    
+ubuntu:$6$eExyHryb$yJ3T3mUSpNCGQmcnV6DGDSGEDmMmlzkldxTGb4oHIQiTpvve3OhaaQBWHxSL9b8.6EyONH.SYFtSpR5DLJK641
+# mkpasswd -m sha-512 VMware1!       root:$6$EK42YS/aa$NpHnqwBhdCEu0pIGlkOBl6e5ZFYUHovTjXaqSGGcOs1eYeHfuY38PBdcKFql4xVoxrIAUePDbBnPajEasyy8r.
+  expire: false
+package_upgrade: true
+package_reboot_if_required: true
+power_state:
+  delay: now
+  mode: reboot
+  message: Rebooting the OS
+  condition: if [ -e /var/run/reboot-required ]; then exit 0; else exit 1; fi
