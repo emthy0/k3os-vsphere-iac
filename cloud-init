@@ -23,9 +23,8 @@ system_info:
 disable_root: false
 ssh_pwauth: yes
 chpasswd:
-  list: |
-# mkpasswd -m sha-512 VMware1!    
-ubuntu:$6$eExyHryb$yJ3T3mUSpNCGQmcnV6DGDSGEDmMmlzkldxTGb4oHIQiTpvve3OhaaQBWHxSL9b8.6EyONH.SYFtSpR5DLJK641
+  list: |    
+    ubuntu:$6$eExyHryb$yJ3T3mUSpNCGQmcnV6DGDSGEDmMmlzkldxTGb4oHIQiTpvve3OhaaQBWHxSL9b8.6EyONH.SYFtSpR5DLJK641
 # mkpasswd -m sha-512 VMware1!       root:$6$EK42YS/aa$NpHnqwBhdCEu0pIGlkOBl6e5ZFYUHovTjXaqSGGcOs1eYeHfuY38PBdcKFql4xVoxrIAUePDbBnPajEasyy8r.
   expire: false
 package_upgrade: true
